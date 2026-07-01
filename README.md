@@ -1,10 +1,10 @@
-# EV Adoption Likelihood Prediction using XGBoost | CI/CD Project
+# EV Adoption Likelihood Prediction using XGBoost | Flask API | CI/CD Project
 
 ## Overview
 
-This project predicts the likelihood of Electric Vehicle (EV) adoption using machine learning. It implements a complete machine learning workflow including data cleaning, preprocessing, model training, prediction, and project organization suitable for CI/CD deployment.
+This project predicts the likelihood of Electric Vehicle (EV) adoption using Machine Learning. It implements an end-to-end machine learning workflow, including data cleaning, preprocessing, model training, prediction, and deployment through a Flask REST API. The project is organized using a CI/CD-ready structure, making it suitable for deployment and automation.
 
-The model is built using the XGBoost classifier with a Scikit-learn pipeline for preprocessing.
+The model is built using the XGBoost Classifier integrated with a Scikit-learn Pipeline for efficient preprocessing and prediction.
 
 ---
 
@@ -26,6 +26,7 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 │   ├── train.py
 │   └── predict.py
 │
+├── app.py
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -44,6 +45,8 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 * XGBoost Classification
 * Model Serialization using Joblib
 * Prediction Pipeline
+* Flask REST API
+* JSON-based Prediction Endpoint
 * CI/CD Ready Project Structure
 
 ---
@@ -51,6 +54,7 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 ## Technologies Used
 
 * Python
+* Flask
 * Pandas
 * NumPy
 * Scikit-learn
@@ -63,17 +67,19 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 
 The project uses the **Global EV Adoption Behavior 2026** dataset containing demographic, financial, behavioral, and environmental factors influencing electric vehicle adoption.
 
-Target Variable:
+### Target Variable
 
-* **ev_adoption_likelihood**
+**ev_adoption_likelihood**
 
-  * High
-  * Medium
-  * Low
+Possible classes:
+
+* High
+* Medium
+* Low
 
 ---
 
-## Machine Learning Pipeline
+## Machine Learning Workflow
 
 1. Load Dataset
 2. Clean Data
@@ -82,27 +88,44 @@ Target Variable:
 5. Scale Numerical Features
 6. Split Train/Test Data
 7. Train XGBoost Classifier
-8. Evaluate Model
-9. Save Model
-10. Predict New Data
+8. Evaluate Model Performance
+9. Save Trained Model
+10. Predict EV Adoption Likelihood
+11. Deploy Model using Flask REST API
 
 ---
 
 ## Installation
 
-Clone the repository:
+### Clone the Repository
 
 ```bash
-git clone https://github.com/Nandhini0226/EV-Adoption-Likelihood-Prediction-Classification-CI_CD.git
+git clone https://github.com/Nandhini0226/continuous-integration-and-deployment.git
 ```
 
-Move into the project directory:
+### Navigate to the Project Folder
 
 ```bash
-cd EV-Adoption-Likelihood-Prediction-Classification-CI_CD
+cd continuous-integration-and-deployment
 ```
 
-Install the required packages:
+### Create a Virtual Environment (Recommended)
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Linux/macOS**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -133,15 +156,102 @@ The script loads the saved model and predicts the EV adoption likelihood for new
 
 ---
 
+# Flask REST API
+
+## Start the Flask Server
+
+```bash
+python app.py
+```
+
+The Flask server will start at:
+
+```
+http://127.0.0.1:5000/
+```
+
+---
+
+## API Endpoints
+
+### Home Endpoint
+
+**GET /**
+
+Returns a message indicating that the API is running.
+
+Example response:
+
+```json
+{
+    "message": "EV Adoption Likelihood Prediction API is running!"
+}
+```
+
+---
+
+### Prediction Endpoint
+
+**POST /predict**
+
+Example request body:
+
+```json
+{
+    "annual_income": 60000,
+    "charging_station_accessibility": 8,
+    "technology_affinity_score": 7,
+    "environmental_awareness_score": 9,
+    "range_anxiety_score": 4,
+    "ev_knowledge_score": 8,
+    "battery_replacement_concern": 3,
+    "government_incentive_awareness": 7,
+    "nearest_charging_station_km": 2.5,
+    "previous_ev_experience": "Yes",
+    "city_type": "Urban",
+    "home_charging_available": "Yes"
+}
+```
+
+Example response:
+
+```json
+{
+    "prediction": "High"
+}
+```
+
+---
+
+## Testing the API
+
+The API can be tested using:
+
+* Thunder Client
+* Postman
+* cURL
+* Python `requests`
+
+---
+
+## Model Files
+
+After training, the following files are created inside the `models` directory:
+
+* `ev_adoption_model.pkl` – Trained XGBoost Pipeline
+* `label_encoder.pkl` – Label Encoder for decoding predictions
+
+---
+
 ## Future Enhancements
 
-* Flask Web Application
 * Streamlit Dashboard
 * Docker Containerization
 * GitHub Actions CI/CD
 * Jenkins Pipeline
 * Cloud Deployment
 * Model Monitoring
+* Automated Model Retraining
 
 ---
 
@@ -149,11 +259,10 @@ The script loads the saved model and predicts the EV adoption likelihood for new
 
 **Nandhini**
 
-GitHub:
-https://github.com/Nandhini0226
+GitHub: https://github.com/Nandhini0226
 
 ---
 
 ## License
 
-This project is created for learning, portfolio development, and demonstration purposes.
+This project is developed for learning, portfolio development, and demonstration purposes.

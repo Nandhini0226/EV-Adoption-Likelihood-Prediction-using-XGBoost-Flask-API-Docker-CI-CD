@@ -1,17 +1,40 @@
-# EV Adoption Likelihood Prediction using XGBoost | Flask API | CI/CD Project
+# 🚗 EV Adoption Likelihood Prediction using XGBoost | Flask API | Docker | CI/CD
 
-## Overview
+## 📌 Overview
 
-This project predicts the likelihood of Electric Vehicle (EV) adoption using Machine Learning. It implements an end-to-end machine learning workflow, including data cleaning, preprocessing, model training, prediction, and deployment through a Flask REST API. The project is organized using a CI/CD-ready structure, making it suitable for deployment and automation.
+This project predicts the likelihood of **Electric Vehicle (EV) adoption** using Machine Learning. It demonstrates an end-to-end ML workflow covering data preprocessing, feature engineering, model training, prediction, API deployment, and containerization.
 
-The model is built using the XGBoost Classifier integrated with a Scikit-learn Pipeline for efficient preprocessing and prediction.
+The solution is built using the **XGBoost Classifier** integrated with a **Scikit-learn Pipeline** and deployed as a **Flask REST API**. The application is containerized using **Docker**, making it portable, reproducible, and deployment-ready. The project follows a CI/CD-ready structure and is designed for production-oriented ML deployment.
 
 ---
 
-## Project Structure
+# 🚀 Features
+
+* Data Cleaning
+* Missing Value Handling
+* Outlier Treatment
+* Feature Engineering
+* One-Hot Encoding
+* Feature Scaling
+* XGBoost Classification
+* Scikit-learn Pipeline
+* Model Serialization using Joblib
+* Flask REST API
+* JSON-based Prediction Endpoint
+* Docker Containerization
+* Docker Hub Ready
+* CI/CD Ready Project Structure
+* Production-ready Folder Organization
+
+---
+
+# 🏗️ Project Structure
 
 ```text
 EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
+│
+├── .github/
+│   └── workflows/
 │
 ├── data/
 │   └── global_ev_adoption_behavior_2026.csv
@@ -27,6 +50,8 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 │   └── predict.py
 │
 ├── app.py
+├── Dockerfile
+├── .dockerignore
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -34,24 +59,63 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 
 ---
 
-## Features
+# 🧠 Machine Learning Workflow
 
-* Data Cleaning
-* Missing Value Handling
-* Outlier Treatment
-* Feature Preprocessing
-* One-Hot Encoding
-* Feature Scaling
-* XGBoost Classification
-* Model Serialization using Joblib
-* Prediction Pipeline
-* Flask REST API
-* JSON-based Prediction Endpoint
-* CI/CD Ready Project Structure
+```
+Dataset
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+Preprocessing Pipeline
+      │
+      ▼
+Train-Test Split
+      │
+      ▼
+XGBoost Classifier
+      │
+      ▼
+Model Evaluation
+      │
+      ▼
+Save Model (.pkl)
+      │
+      ▼
+Flask REST API
+      │
+      ▼
+Docker Container
+      │
+      ▼
+Deployment
+```
 
 ---
 
-## Technologies Used
+# 📊 Dataset
+
+The project uses the **Global EV Adoption Behavior 2026** dataset containing demographic, financial, technological, behavioral, and environmental factors influencing EV adoption.
+
+## Target Variable
+
+```
+ev_adoption_likelihood
+```
+
+Possible Classes
+
+* High
+* Medium
+* Low
+
+---
+
+# 🛠 Technologies Used
 
 * Python
 * Flask
@@ -60,72 +124,47 @@ EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
 * Scikit-learn
 * XGBoost
 * Joblib
+* Docker
+* Git
+* GitHub
 
 ---
 
-## Dataset
+# ⚙️ Installation
 
-The project uses the **Global EV Adoption Behavior 2026** dataset containing demographic, financial, behavioral, and environmental factors influencing electric vehicle adoption.
-
-### Target Variable
-
-**ev_adoption_likelihood**
-
-Possible classes:
-
-* High
-* Medium
-* Low
-
----
-
-## Machine Learning Workflow
-
-1. Load Dataset
-2. Clean Data
-3. Handle Missing Values
-4. Encode Categorical Variables
-5. Scale Numerical Features
-6. Split Train/Test Data
-7. Train XGBoost Classifier
-8. Evaluate Model Performance
-9. Save Trained Model
-10. Predict EV Adoption Likelihood
-11. Deploy Model using Flask REST API
-
----
-
-## Installation
-
-### Clone the Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/Nandhini0226/continuous-integration-and-deployment.git
 ```
 
-### Navigate to the Project Folder
+## Navigate into Project
 
 ```bash
 cd continuous-integration-and-deployment
 ```
 
-### Create a Virtual Environment (Recommended)
+---
 
-**Windows**
+## Create Virtual Environment
+
+### Windows
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-**Linux/macOS**
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Install Dependencies
+---
+
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -133,7 +172,7 @@ pip install -r requirements.txt
 
 ---
 
-## Train the Model
+# 🏋️ Train the Model
 
 ```bash
 python src/train.py
@@ -141,121 +180,225 @@ python src/train.py
 
 This generates:
 
-* `models/ev_adoption_model.pkl`
-* `models/label_encoder.pkl`
+```
+models/
+    ev_adoption_model.pkl
+    label_encoder.pkl
+```
 
 ---
 
-## Run Prediction
+# 🔮 Run Prediction
 
 ```bash
 python src/predict.py
 ```
 
-The script loads the saved model and predicts the EV adoption likelihood for new input data.
+The prediction script loads the saved model and predicts EV Adoption Likelihood for new data.
 
 ---
 
-# Flask REST API
+# 🌐 Flask REST API
 
-## Start the Flask Server
+Start the API
 
 ```bash
 python app.py
 ```
 
-The Flask server will start at:
+Application runs on
 
 ```
-http://127.0.0.1:5000/
+http://127.0.0.1:5000
 ```
 
 ---
 
-## API Endpoints
+# 📡 API Endpoints
 
-### Home Endpoint
+## Home Endpoint
 
-**GET /**
+### GET /
 
-Returns a message indicating that the API is running.
-
-Example response:
+Returns
 
 ```json
 {
-    "message": "EV Adoption Likelihood Prediction API is running!"
+  "message": "EV Adoption Likelihood Prediction API is running!"
 }
 ```
 
 ---
 
-### Prediction Endpoint
+## Prediction Endpoint
 
-**POST /predict**
+### POST /predict
 
-Example request body:
+Example Request
 
 ```json
 {
-    "annual_income": 60000,
-    "charging_station_accessibility": 8,
-    "technology_affinity_score": 7,
-    "environmental_awareness_score": 9,
-    "range_anxiety_score": 4,
-    "ev_knowledge_score": 8,
-    "battery_replacement_concern": 3,
-    "government_incentive_awareness": 7,
-    "nearest_charging_station_km": 2.5,
-    "previous_ev_experience": "Yes",
-    "city_type": "Urban",
-    "home_charging_available": "Yes"
+  "annual_income":60000,
+  "charging_station_accessibility":8,
+  "technology_affinity_score":7,
+  "environmental_awareness_score":9,
+  "range_anxiety_score":4,
+  "ev_knowledge_score":8,
+  "battery_replacement_concern":3,
+  "government_incentive_awareness":7,
+  "nearest_charging_station_km":2.5,
+  "previous_ev_experience":"Yes",
+  "city_type":"Urban",
+  "home_charging_available":"Yes"
 }
 ```
 
-Example response:
+Example Response
 
 ```json
 {
-    "prediction": "High"
+    "prediction":"High"
 }
 ```
 
 ---
 
-## Testing the API
+# 🐳 Docker Containerization
 
-The API can be tested using:
+## Build Docker Image
 
-* Thunder Client
+```bash
+docker build -t ev-adoption-app .
+```
+
+---
+
+## Verify Docker Image
+
+```bash
+docker images
+```
+
+---
+
+## Run Docker Container
+
+```bash
+docker run -p 5000:5000 ev-adoption-app
+```
+
+The API will be available at
+
+```
+http://localhost:5000
+```
+
+---
+
+## Docker Hub
+
+Push the Docker image
+
+```bash
+docker login
+
+docker tag ev-adoption-app nandhini0426/ev-adoption-app:latest
+
+docker push nandhini0426/ev-adoption-app:latest
+```
+
+Pull the image
+
+```bash
+docker pull nandhini0426/ev-adoption-app:latest
+```
+
+Run directly from Docker Hub
+
+```bash
+docker run -p 5000:5000 nandhini0426/ev-adoption-app:latest
+```
+
+---
+
+# 🧪 API Testing
+
+The API can be tested using
+
 * Postman
+* Thunder Client
 * cURL
-* Python `requests`
+* Python Requests
 
 ---
 
-## Model Files
+# 📁 Model Files
 
-After training, the following files are created inside the `models` directory:
+After training
 
-* `ev_adoption_model.pkl` – Trained XGBoost Pipeline
-* `label_encoder.pkl` – Label Encoder for decoding predictions
+```
+models/
+│
+├── ev_adoption_model.pkl
+└── label_encoder.pkl
+```
 
 ---
 
-## Future Enhancements
+# 🔄 CI/CD
 
-* Streamlit Dashboard
+This project follows a CI/CD-ready structure.
+
+Current Implementation
+
+* Flask API
 * Docker Containerization
-* GitHub Actions CI/CD
+* Docker Image Build
+* Docker Hub Integration
+
+Planned Enhancements
+
+* GitHub Actions
 * Jenkins Pipeline
+* Automated Testing
 * Cloud Deployment
 * Model Monitoring
-* Automated Model Retraining
 
 ---
 
-## Author
+# 🚀 Future Enhancements
+
+* GitHub Actions CI/CD
+* Jenkins CI/CD
+* Docker Compose
+* Kubernetes Deployment
+* AWS Deployment
+* Azure Deployment
+* Streamlit Dashboard
+* Model Monitoring
+* Automated Retraining
+* MLflow Integration
+
+---
+
+# 💼 Skills Demonstrated
+
+* Machine Learning
+* Feature Engineering
+* Data Preprocessing
+* XGBoost
+* Scikit-learn Pipelines
+* Flask API Development
+* REST API Design
+* Model Serialization
+* Docker
+* Docker Hub
+* Git & GitHub
+* CI/CD Concepts
+
+---
+
+# 👩‍💻 Author
 
 **Nandhini**
 
@@ -263,6 +406,6 @@ GitHub: https://github.com/Nandhini0226
 
 ---
 
-## License
+# 📄 License
 
 This project is developed for learning, portfolio development, and demonstration purposes.

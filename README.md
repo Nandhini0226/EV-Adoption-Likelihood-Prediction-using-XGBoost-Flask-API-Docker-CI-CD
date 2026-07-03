@@ -31,7 +31,8 @@ The solution is built using the **XGBoost Classifier** integrated with a **Sciki
 # 🏗️ Project Structure
 
 ```text
-EV-Adoption-Likelihood-Prediction-Classification-CI_CD/
+EV-Adoption-Likelihood-Prediction-using-XGBoost-Flask-API-Docker-CI-CD
+
 │
 ├── .github/
 │   └── workflows/

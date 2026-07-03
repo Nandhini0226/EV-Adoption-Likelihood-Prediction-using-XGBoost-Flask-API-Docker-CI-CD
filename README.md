@@ -1,5 +1,10 @@
 # 🚗 EV Adoption Likelihood Prediction using XGBoost | Flask API | Docker | CI/CD
 
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Flask](https://img.shields.io/badge/Flask-API-black)
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML-green)
+![CI/CD](https://img.shields.io/badge/GitHub%20Actions-CI/CD-success)
 ## 📌 Overview
 
 This project predicts the likelihood of **Electric Vehicle (EV) adoption** using Machine Learning. It demonstrates an end-to-end ML workflow covering data preprocessing, feature engineering, model training, prediction, API deployment, and containerization.
